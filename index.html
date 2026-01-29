@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Task App</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Phone Container -->
+    <div class="mobile-frame">
+
+        <!-- === PAGE 1: HOME / DASHBOARD === -->
+        <div id="page-home" class="page active">
+            <header class="home-header">
+                <button class="menu-btn" id="theme-toggle-btn"><i class="fa-solid fa-moon"></i></button>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Aleena+Malik&background=ffcc00&color=fff" alt="User">
+                </div>
+            </header>
+
+            <div class="greeting-section">
+                <h1>Hello, Aleena!</h1>
+                <p>Have a nice day !</p>
+            </div>
+
+            <div class="tab-filters">
+                <button class="tab-btn active">My tasks</button>
+                <button class="tab-btn">Project</button>
+                <button class="tab-btn">Note</button>
+            </div>
+
+            <!-- Project Cards Carousel -->
+            <div class="carousel-container">
+                <div class="project-card blue-card">
+                    <div class="card-date">October 2020</div>
+                    <h2>Back End Development</h2>
+                    <div class="progress-info">
+                        <span>Progress</span>
+                        <span>50%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 50%"></div>
+                    </div>
+                </div>
+                <div class="project-card purple-card">
+                    <div class="card-date">November 2020</div>
+                    <h2>UI Design</h2>
+                    <div class="progress-info">
+                        <span>Progress</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h3>Progress</h3>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+
+            <ul id="home-task-list" class="styled-list">
+                <!-- Task items will be injected here -->
+            </ul>
+        </div>
+
+        <!-- === PAGE 2: CALENDAR / TASKS === -->
+        <div id="page-calendar" class="page">
+            <header class="calendar-header">
+                <button class="back-btn" onclick="navigateTo('home')"><i class="fa-solid fa-arrow-left"></i></button>
+                <div class="header-actions">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+            </header>
+
+            <div class="calendar-title-row">
+                <h2 id="current-month">Oct, 2020</h2>
+                <button class="add-mini-btn" onclick="navigateTo('create')">+ Add Task</button>
+            </div>
+
+            <div class="date-strip">
+                <div class="date-item active">
+                    <span class="day-num">10</span>
+                    <span class="day-name">Mon</span>
+                </div>
+                <div class="date-item">
+                    <span class="day-num">11</span>
+                    <span class="day-name">Tue</span>
+                </div>
+                <div class="date-item">
+                    <span class="day-num">12</span>
+                    <span class="day-name">Wed</span>
+                </div>
+                <div class="date-item">
+                    <span class="day-num">13</span>
+                    <span class="day-name">Thu</span>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h3>Task</h3>
+                <i class="fa-solid fa-ellipsis"></i>
+            </div>
+
+            <ul id="calendar-task-list" class="styled-list">
+                <!-- Tasks injected here -->
+            </ul>
+        </div>
+
+        <!-- === PAGE 3: CREATE TASK === -->
+        <div id="page-create" class="page">
+            <header class="create-header">
+                <div class="header-top">
+                    <button class="back-btn-white" onclick="navigateTo('home')"><i
+                            class="fa-solid fa-arrow-left"></i></button>
+                    <h3>Create New Task</h3>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+
+                <div class="form-group-float">
+                    <label>Title</label>
+                    <input type="text" id="new-task-title" placeholder="Design meetings">
+                </div>
+
+                <div class="form-group-float">
+                    <label>Date</label>
+                    <input type="date" id="new-task-date">
+                </div>
+            </header>
+
+            <div class="create-body">
+                <div class="time-row">
+                    <div class="form-group">
+                        <label>Start Time</label>
+                        <input type="time" id="start-time" value="09:00">
+                    </div>
+                    <div class="form-group">
+                        <label>End Time</label>
+                        <input type="time" id="end-time" value="11:00">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="task-desc" placeholder="Some text here for the description..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <div class="category-pills" id="category-pills">
+                        <button class="pill active" data-cat="Marketing">Marketing</button>
+                        <button class="pill" data-cat="Meeting">Meeting</button>
+                        <button class="pill" data-cat="Dev">Dev</button>
+                        <button class="pill" data-cat="Design">Design</button>
+                    </div>
+                </div>
+
+                <button id="create-task-main-btn" class="main-cta-btn">Create Task</button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" onclick="navigateTo('home')">
+                <i class="fa-solid fa-house"></i>
+            </button>
+            <button class="nav-item" onclick="navigateTo('calendar')">
+                <i class="fa-regular fa-calendar-check"></i>
+            </button>
+            <button class="nav-item">
+                <i class="fa-regular fa-user"></i>
+            </button>
+        </nav>
+
+    </div>
+
+    <!-- Toast -->
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
