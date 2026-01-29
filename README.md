@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Advanced To-Do List Application
 
 This project is a modern, responsive To-Do List web application designed to help users organize their tasks efficiently. It features a clean user interface, category filtering, priority levels, and a dark mode option.
@@ -26,3 +27,6 @@ This project is a modern, responsive To-Do List web application designed to help
 
 This project was developed as part of my internship at **Code Alpha**.
 It serves as a demonstration of my frontend development skills acquired and refined during this program.
+=======
+# code_alpha_to_do_list
+>>>>>>> fd18e96f1545a72a9db60d149cca4711f3ff9c45
